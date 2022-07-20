@@ -11,36 +11,6 @@ use Auth;
 class UserProfileController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -89,7 +59,7 @@ class UserProfileController extends Controller
         $user = User::findorfail(Auth::id());
         $user->name = $request->name;
         $user->country = $request->country;
-        $user->state = $request->state;
+        $user->state = $request->state ?? null;
         $user->address = $request->address;
         $user->mobile = $request->mobile;
         $user->dob = $request->dob;
@@ -98,16 +68,5 @@ class UserProfileController extends Controller
         $user->update();
         return redirect()->action([UserProfileController::class, 'show'])
             ->with('status', 'Your profile has bee updated!');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

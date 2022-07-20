@@ -30,7 +30,7 @@ Route::GET('/', function () {
     return redirect('/login');
 });
 
-Route::resource('/media', MediaController::class);
+Route::post('/media', [MediaController::class, 'store'])->name('media.store');
 
 Auth::routes();
 

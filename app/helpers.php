@@ -18,7 +18,7 @@ if (!function_exists('getCountry')) {
 if (!function_exists('get_attachment')) {
     function get_attachment($id)
     {
-        $media = \App\Models\Media::findorFail($id);
+        $media = \App\Models\Media::find($id);
         if ($media) {
             $path   = $media->original_file;
             if (file_exists(public_path($media->folder_path . $media->thumbnail))) {
