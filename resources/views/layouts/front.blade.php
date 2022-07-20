@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="{{asset('/admin_asset/css/style.css')}}">
     <title>User Dashboard</title>
 </head>
+
 <body>
     <input type="hidden" value="{{url('/')}}" id="url" name="url">
-
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar d-none d-lg-block">
             <div class="sidebar-content js-simplebar" data-simplebar="init">
@@ -34,7 +34,6 @@
                                         <div class="d-flex pl-4">
                                             <div class="flex-shrink-0">
                                                 {!!get_attachment(Auth::user()->image)!!}
-
                                             </div>
                                             <div class="flex-grow-1 py-3 pl-1">
                                                 <span class="sidebar-user-title">

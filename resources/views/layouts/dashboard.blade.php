@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('/admin_asset/css/style.css')}}">
     <title>Admin Dashboard</title>
 </head>
+
 <body>
     <div class="wrapper">
         <nav id="sidebar" class="sidebar js-sidebar  d-none d-lg-block">

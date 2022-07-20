@@ -7,7 +7,6 @@
 </div>
 <div class="col-12">
     <div class="card">
-
         <div class="card-body">
             <div id="datatables-reponsive_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                 <div class="row">
@@ -40,5 +39,4 @@
         </div>
     </div>
 </div>
-
 @endsection

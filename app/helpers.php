@@ -20,11 +20,10 @@ if (!function_exists('get_attachment')) {
     {
         $media = \App\Models\Media::find($id);
         if ($media) {
-            $path   = $media->original_file;
-            if (file_exists(public_path($media->folder_path . $media->thumbnail))) {
-                return '<img src="' . url($media->folder_path . $media->thumbnail) . '">';
-            } else {
+            if (file_exists(public_path($media->folder_path . $media->original_file))) {
                 return '<img src="' . url($media->folder_path . $media->original_file) . '">';
+            } else {
+                return '';
             }
         }
         return '';

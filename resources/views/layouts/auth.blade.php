@@ -28,7 +28,6 @@
 
 <body data-theme="default" data-layout="fluid" data-sidebar-position="left" data-sidebar-layout="default">
     <input type="hidden" value="{{url('/')}}" id="url" name="url">
-
     <main class="d-flex w-100 h-100">
         <div class="container d-flex flex-column">
             @yield('content')
@@ -42,25 +41,21 @@
                     <div class="modal-body">
                         <div class="media-image-manager">
                             <!-- nav tabs -->
-
                             <form enctype="multipart/form-data" class="dropzone" id="image-upload" action="{{ route('media.store') }}">
                                 @csrf
                             </form>
                             <button class="btn btn-square btn-primary mt-2" id="uploadFile">Upload Files</button>
-
                         </div>
                     </div><!-- end .modal-content -->
                 </div>
             </div><!-- end .modal-dialog -->
         </div><!-- end .modal -->
-
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
     <script src="{{ asset('js/state.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </body>
 
 </html>

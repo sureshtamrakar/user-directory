@@ -47,11 +47,8 @@ $("#country").change(function () {
 });
 
 function loadMediaModel() {
-
     $('#media-modal').modal('show');
     myDropzone.removeAllFiles();
-
-
 }
 
 Dropzone.autoDiscover = false;
@@ -64,7 +61,7 @@ var myDropzone = new Dropzone(".dropzone", {
         var obj = JSON.parse(response);
         if (!obj.error) {
             str += `<input type="hidden" name="image" value="${obj.id}">`;
-            str += `<img src="${url}/${obj.folder_path}/${obj.image}">`;
+            str += `<img src="${url}/${obj.folder_path}${obj.image}">`;
             $(".profile-picture").empty().append(str);
             $('#media-modal').modal('toggle');
             $('.card-header').empty().append(`<div class="alert alert-success alert-dismissible" role="alert">
@@ -83,8 +80,6 @@ var myDropzone = new Dropzone(".dropzone", {
 });
 
 $('#uploadFile').click(function () {
-
     myDropzone.processQueue();
-
 });
 

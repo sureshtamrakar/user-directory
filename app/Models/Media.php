@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Media extends Model
 {
     use HasFactory;
-    protected $fillable = ['thumbnail', 'alt', 'type', 'original_file', ' folder_path'];
+    protected $fillable = ['alt', 'type', 'original_file', ' folder_path'];
 
 }

@@ -19,28 +19,23 @@ class MediaController extends Controller
     {
         if ($request->hasFile('file')) {
             $targetPath = 'uploads/' . date("Y") . '/' . date("m") . '/';
-            $file = $request->file('file');
-            $fname = $file->getClientOriginalName();
-            $ext = $file->getClientOriginalExtension();
+            $image = Image::make($request->file('file'));
+            $fname = $request->file('file')->getClientOriginalName();
+            $ext = $request->file('file')->getClientOriginalExtension();
             $nameWithOutExt = pathinfo($fname, PATHINFO_FILENAME);
             $original = $nameWithOutExt . '.' . $ext;
-            $file->move($targetPath, $original); // Move the original one first
-            $newName = $nameWithOutExt . '-thumbnail.' . $ext;
-            copy($targetPath . $original, $targetPath . $newName); // copy image to resize
-            Image::make($targetPath . $newName)
-                ->fit(160, 160)
-                ->save($targetPath . $newName);
+            $request->file('file')->move($targetPath, $original); // Move the original one first
+            $image->fit(160, 160)->save($targetPath . $original);
             $media = new Media;
             $media->original_file   =  $original;
             $media->folder_path     =   $targetPath;
             $media->alt     =   preg_replace('/[^a-zA-Z0-9]/', ' ', $nameWithOutExt);
             $media->type = $ext;
-            $media->thumbnail     =   $newName;
             $media->save();
             if ($media) {
                 $data = [
                     'id' => $media->id,
-                    'image' => $media->thumbnail,
+                    'image' => $media->original_file,
                     'folder_path' => $media->folder_path
                 ];
                 return \json_encode($data);
